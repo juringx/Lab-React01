@@ -7,6 +7,7 @@ const word1 = "Hello";
 const word2 = "Teacher";
 const word3 = "Statue"
 function App() {
+
   return (
     <div>
       <div>1. The word u use when greet other</div>
