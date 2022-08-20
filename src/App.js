@@ -1,28 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import WordCard from './WordCard';
-import CharacterCard from './CharacterCard';
+import Popup from "./Rules";
 
 
-const word1 = "Hello";
-const word2 = "Teacher";
-const word3 = "Statue";
+const word = ["Hello","Teacher","Statue","Barista"];
+
 
 function _refreshPage() {
   window.location.reload();
 }
 function Apps() {
+  const [isOpen, setIsOpen] = useState(false);
   
-  return (
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+
+    return (
     <div>
-      <a>Guess WORD !</a>
+      <button onClick={togglePopup}>Click to Open Rules</button>
+      {isOpen && <Popup
+        handleClose={togglePopup}
+        content={<div>
+          <h2>RULES</h2>
+          <p>1. จะมีคำศัพท์ให้มาพร้อมความหมายและตัวอักษร</p>
+          <p>2. กดเลือกตัวอักษรเรียงตามลำดับให้ตรงตามความหมาย</p>
+          <p>3. หากเรียงผิดจะต้องเรียงใหม่</p>
+          <p>4. เมื่อเล่นครบหมดสามารถกดเริ่มใหม่ได้</p>
+        </div>
+        }
+      />}
+
       <p>1. The word u use when greet other</p>
-      <div><WordCard value={word1}/></div>
+      <div><WordCard value={word[0]}/></div>
       <p>2. The word u call someone who u learn anything from</p>
-      <div><WordCard value={word2}/></div>
+      <div><WordCard value={word[1]}/></div>
       <p>3. a model that looks like a person or animal</p>
-      <div><WordCard value={word3}/></div>
-      <button onClick = {_refreshPage}> Restart </button>
+      <div><WordCard value={word[2]}/></div>
+      <p>4. a person who serves customers in a coffee shop</p>
+      <div><WordCard value={word[3]}/></div>
+      <button className="Restart_button" onClick = {_refreshPage}> Restart </button>
     </div>
   );
 }
