@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CharacterCard  from './CharacterCard';
 import _ from 'lodash';
 
+
 const prepareStateFromWord = given_word => {
     let word = given_word.toUpperCase()
     let chars = _.shuffle(Array.from(word))
@@ -41,6 +42,7 @@ export default function WordCard(props){
         <div>
             { state.chars.map((c, i) => 
                 <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt}/>) }
+            <div>Attempt : {state.attempt}</div>
         </div>
     );
 }
