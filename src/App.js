@@ -10,11 +10,12 @@ function App() {
 
   return (
     <div>
-      <div>1. The word u use when greet other</div>
+      <a>Guess WORD !</a>
+      <p>1. The word u use when greet other</p>
       <div><WordCard value={word1}/></div>
-      <div>2. The word u call someone who u learn anything from</div>
+      <p>2. The word u call someone who u learn anything from</p>
       <div><WordCard value={word2}/></div>
-      <div>3. a model that looks like a person or animal</div>
+      <p>3. a model that looks like a person or animal</p>
       <div><WordCard value={word3}/></div>
     </div>
   );
